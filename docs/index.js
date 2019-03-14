@@ -8,8 +8,10 @@ var map = L.map('map'),
         pointToLayer: function(f,l){
             return L.marker(l,{
                 'icon': L.icon({
-                    iconUrl: 'icon.png'
-                })
+                    iconUrl: 'icon.png',
+                }),
+                rotationAngle: f.properties.bearing,
+                rotationOrigin: 'center center'
             })
         },
         getFeatureId: function(f) {
