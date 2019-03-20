@@ -23,7 +23,8 @@ var map = L.map('map'),
         pointToLayer: function(f,l){
             return L.marker(l,{
                 'icon': L.icon({
-                    iconUrl: 'icon.png',
+                    iconUrl: './icons/'+ f.properties.route +'.png',
+                    iconSize: [10.5,15] //[7,10] //original size
                 }),
                 rotationAngle: f.properties.bearing,
                 rotationOrigin: 'center center'
@@ -54,4 +55,3 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 realtime.on('update', function() {
     map.fitBounds(realtime.getBounds(), {maxZoom: 15});
 });
-//why is only 1 bus showing
