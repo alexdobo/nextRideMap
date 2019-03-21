@@ -87,9 +87,10 @@ def createResponse():
 
 
 def lambda_handler(event, context):
-    # TODO implement
-    return createResponse()
-    #{
-    #    'statusCode': 200,
-    #    'body': json.dumps('Hello from Lambda!')
-    #}
+    return {
+        'headers':{
+            'Access-Control-Allow-Origin': '*'
+        },
+        'statusCode': 200,
+        'body': json.dumps(createResponse()) #createResponse()
+    }
